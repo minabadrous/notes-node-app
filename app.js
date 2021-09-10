@@ -1,14 +1,11 @@
 const yargs = require("yargs");
-const chalk = require("chalk");
 const notes = require("./notes");
-
-const blued = (text) => chalk.bgBlue(text);
 
 // Version
 yargs.version("1.1.0");
 
-// Add
-yargs.command({
+// ADD
+const addCommand = {
     command: "add",
     describe: "Add a note",
     builder: {
@@ -26,10 +23,10 @@ yargs.command({
     handler({ title, body }) {
         notes.addNote(title, body);
     },
-});
+};
 
-// Remove
-yargs.command({
+// REMOVE
+const removeCommand = {
     command: "remove",
     describe: "Remove a note",
     builder: {
@@ -42,19 +39,19 @@ yargs.command({
     handler({ title }) {
         notes.removeNote(title);
     },
-});
+};
 
-// List
-yargs.command({
+// LIST
+const listCommand = {
     command: "list",
     describe: "List the notes",
     handler() {
         notes.listNotes();
     },
-});
+};
 
-// Read
-yargs.command({
+// READ
+const readCommand = {
     command: "read",
     describe: "Read a note",
     builder: {
@@ -67,6 +64,11 @@ yargs.command({
     handler({ title }) {
         notes.readNote(title);
     },
-});
+};
 
+// Group and yargs commands
+const commands = [addCommand, removeCommand, listCommand, readCommand];
+commands.forEach((command) => yargs.command({ ...command }));
+
+// Init yargs
 yargs.parse();

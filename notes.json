@@ -1,1 +1,14 @@
-[{"title":"hello","body":"that's my first task"},{"title":"another note","body":"ho ho ho"}]
+[
+    {
+        "title": "hello",
+        "body": "that's my first task"
+    },
+    {
+        "title": "hello second one",
+        "body": "look at that body"
+    },
+    {
+        "title": "hello third  one",
+        "body": "look at that body"
+    }
+]
