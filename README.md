@@ -1,5 +1,5 @@
 # notes-node-app
-A note taking app width Node.js functionality connected directly to the File System
+A note taking app created with Node.js and connected directly to the File System.
 </br></br></br>
 ## List notes:
 ```
